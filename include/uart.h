@@ -24,8 +24,8 @@ static u8 USART_FLAG = 0;                // 接收完毕则置1
 #define uart_write(str)       uart_send_str(str)
 
 void uart_init();
-void uart_send_ch(uchar ch);	  //发送一个字符
-void uart_send_str(uchar *str);	  //发送字符串
+void uart_send_ch(uchar ch);	  // 发送一个字符
+void uart_send_str(uchar *str);	  // 发送字符串
 char* uart_read(char *buf);
 
 

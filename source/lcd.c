@@ -5,8 +5,8 @@ static uchar LCD_POS = 0;     // 指向接下去显示的位置
 static void delay()
 {
 	uchar i = 30, j = 20;
-	while(i--)
-		while(j--);
+	while (i--)
+		while (j--);
 }
 
 void lcd_init()
@@ -55,9 +55,9 @@ void lcd_write_str(uchar pos, uchar str[])
 	uchar str_len = strlen(str);
 	uchar cnt = 0, current_pos = pos;
 	(pos < 16) ? Write_Cmd(0x80 + pos) : Write_Cmd(0xc0 + pos - 16);
-	for(cnt=0; cnt<str_len; cnt++, current_pos++)
+	for (cnt = 0; cnt < str_len; cnt++, current_pos++)
 	{
-		if(current_pos == 16)
+		if (current_pos == 16)
 		{
 			Write_Cmd(0xc0);         // 换行
 		}
@@ -70,7 +70,7 @@ void lcd_write_str_auto(uchar str[])
 {
 	uchar str_len = strlen(str);
 	uchar cnt = 0;
-	for(cnt=0;cnt<str_len;cnt++)
+	for (cnt = 0; cnt < str_len; cnt++)
 	{
 		Write_Dat(str[cnt]);
 		LCD_POS++;

@@ -3,9 +3,9 @@
 static void delay100ms()
 {
     unsigned char a,b,c;
-    for(c=7;c>0;c--)
-        for(b=74;b>0;b--)
-            for(a=95;a>0;a--);
+    for (c = 7; c > 0; c--)
+        for (b = 74; b > 0 ; b--)
+            for (a = 95; a > 0; a--);
 }
 
 

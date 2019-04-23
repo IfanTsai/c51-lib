@@ -31,10 +31,10 @@ void uart_init()
 
 void uart_send_str(uchar *str)	    // 发送字符串
 {
- 	while(*str)
+ 	while (*str)
  	{
 	 	SBUF = *(str++);
-		while(TI == 0);
+		while (TI == 0);
 		TI = 0;
 	}
 }
@@ -43,7 +43,7 @@ void uart_send_ch(uchar ch)        // 发送一个字符
 {
     TI = 0;
     SBUF = ch;
-    while(TI == 0);
+    while (TI == 0);
     TI = 0;
 }
 
@@ -55,7 +55,7 @@ char* uart_read(char *buf)
 	while (!USART_FLAG);
 
 	#else
-	if(!USART_FLAG)
+	if (!USART_FLAG)
 	{
 		return buf;
 	}
