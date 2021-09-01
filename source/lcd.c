@@ -5,6 +5,7 @@ static uchar LCD_POS = 0;     // 指向接下去显示的位置
 static void delay()
 {
 	uchar i = 30, j = 20;
+	
 	while (i--)
 		while (j--);
 }
@@ -55,10 +56,8 @@ void lcd_write_str(uchar pos, uchar str[])
 	uchar str_len = strlen(str);
 	uchar cnt = 0, current_pos = pos;
 	(pos < 16) ? Write_Cmd(0x80 + pos) : Write_Cmd(0xc0 + pos - 16);
-	for (cnt = 0; cnt < str_len; cnt++, current_pos++)
-	{
-		if (current_pos == 16)
-		{
+	for (cnt = 0; cnt < str_len; cnt++, current_pos++) {
+		if (current_pos == 16) {
 			Write_Cmd(0xc0);         // 换行
 		}
 		Write_Dat(str[cnt]);
@@ -70,8 +69,7 @@ void lcd_write_str_auto(uchar str[])
 {
 	uchar str_len = strlen(str);
 	uchar cnt = 0;
-	for (cnt = 0; cnt < str_len; cnt++)
-	{
+	for (cnt = 0; cnt < str_len; cnt++) {
 		Write_Dat(str[cnt]);
 		LCD_POS++;
 	}
@@ -92,4 +90,3 @@ void lcd_back_space()
 	( (LCD_POS - 1) < 16) ? Write_Cmd(0x80 + LCD_POS - 1) : Write_Cmd(0xc0 + LCD_POS - 16 - 1);
 	LCD_POS = LCD_POS;     // 没错,这同样是一条无聊的代码
 }
-
