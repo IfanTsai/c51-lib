@@ -3,6 +3,7 @@
 static void delay100ms()
 {
     unsigned char a,b,c;
+
     for (c = 7; c > 0; c--)
         for (b = 74; b > 0 ; b--)
             for (a = 95; a > 0; a--);
@@ -30,5 +31,6 @@ u8 at24c02_read(u8 addr)
     num = i2c_recv_byte();  // 读取数据
     i2c_stop();
     delay100ms();
+
     return num;
 }
