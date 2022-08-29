@@ -1,6 +1,6 @@
 #include "key.h"
 
-uchar key_polling()
+char key_polling()
 {
 	uchar i = 0, a = 100;
 
@@ -48,7 +48,7 @@ uchar key_polling()
 	return i;
 }
 
-uchar key_blocking()
+char key_blocking()
 {
 	KEY = 0x0f;
 	while (KEY == 0x0f); // blocking
